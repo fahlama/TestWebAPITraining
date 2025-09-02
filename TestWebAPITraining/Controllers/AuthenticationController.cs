@@ -101,9 +101,9 @@ namespace TestWebAPITraining.Controllers
             return new TrainingInfoUser(
                 1,
                 userName ?? "",
-                "Kevin",
-                "Dockx",
-                "Antwerp");
+                "Mohamed",
+                "Fahla",
+                "Riyadh");
 
         }
     }
