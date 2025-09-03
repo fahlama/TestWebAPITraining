@@ -12,15 +12,20 @@ namespace TestWebAPITraining.Controllers
     public class PieController : Controller
     {
         private readonly IPieRepository _pieRepository;
+        const int maxProductsPageSize = 20;
         public PieController(IPieRepository pieRepository) 
         {
          _pieRepository = pieRepository;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPies()
+        public async Task<IActionResult> GetPies(int pageNumber = 1, int pageSize = 2)
         {
-            return Ok(await  _pieRepository.AllPiesAsync());
+            if (pageSize > maxProductsPageSize)
+            {
+                pageSize = maxProductsPageSize;
+            }
+            return Ok(await  _pieRepository.AllPiesAsync(pageNumber, pageSize));
         }
         [HttpGet("piesoftheweek")]
         [ApiVersion(0.1, Deprecated = true)]

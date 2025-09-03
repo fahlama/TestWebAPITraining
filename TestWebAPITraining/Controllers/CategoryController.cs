@@ -9,7 +9,7 @@ namespace TestWebAPITraining.Controllers
     [ApiController]
     //[Route("api/v{version:apiVersion}/categories")]
     [Route("api/v{version:apiVersion}/Categories")]
-    [Authorize]
+    //[Authorize]
     [ApiVersion(2)]
     public class CategoryController : Controller
     {
